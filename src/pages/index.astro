@@ -1,10 +1,87 @@
 ---
+import Badge from "../components/Badge.astro"
+import Timeline from "../components/Timeline.astro"
+import LinkPill from "../components/LinkPill.astro"
+import SectionContainer from "../components/SectionContainer.astro"
+import Briefcase from "../components/icons/Briefcase.astro"
+import GitHub from "../components/icons/GitHub.astro"
+import LinkedIn from "../components/icons/LinkedIn.astro"
+import Mail from "../components/icons/Mail.astro"
+import Academic from "../components/icons/Academic.astro"
+import Code from "../components/icons/Code.astro"
+
 import Layout from "../layouts/Layout.astro"
+
+import { EXPERIENCES, EDUCATION } from "../utils/consts"
 ---
 
 <Layout
   title='Ismael Morejón - Desarrollador y programador de Aplicaciones Web y Videojuegos.'
   description='Ismael Morejón es un desarrollador especializado en el desarrollo de aplicaciones web y videojuegos.'
 >
-  <main></main>
+  <main class='px-4'>
+    <SectionContainer id='hero' class='py-44 pb-32'>
+      <img
+        class='rounded-full size-12 mb-4'
+        src='/hero-_1_.webp'
+        alt='Fotografía de Ismael Morejón'
+      />
+      <h1
+        class='text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10'
+      >
+        ¡Hola, soy Ismael! 👋<a
+          href='https://linkedin.com/in/ismobla'
+          target='_blank'
+          rel='noopener'
+          class='flex justify-center items-center'
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </a>
+      </h1>
+      <h2 class='text-xl lg:text-2xl text-balance max-w-[700px] leading-normal'>
+        <span class='text-lime-200'>Desarrollador Web Júnior</span> actualmente
+        residiendo en
+        <span class='text-rose-200'>València, España</span>. Con ganas de
+        <span class='text-indigo-200'>crear aplicaciones únicas</span> y <span
+          class='text-fuchsia-200'>aprendiendo de forma continua</span
+        >.
+      </h2>
+
+      <nav class='flex gap-4 mt-8 flex-wrap'>
+        <LinkPill href='https://linkedin.com/in/ismobla'>
+          <LinkedIn class='size-4 md:size-6' />
+           LinkedIn
+        </LinkPill>
+        <LinkPill href='https://github.com/xSharkhy'>
+          <GitHub class='size-4 md:size-6' />
+           GitHub
+        </LinkPill>
+        <LinkPill href='mailto:ismamoreblas@gmail.com'>
+          <Mail class='size-4 md:size-6' />
+           ismamoreblas@gmail.com
+        </LinkPill>
+      </nav>
+    </SectionContainer>
+    <SectionContainer id='experiencia'>
+      <h2 class='text-3xl font-semibold mb-6 flex gap-x-3 items-center'>
+        <Briefcase class='size-7' />
+         Experiencia laboral
+      </h2>
+      <Timeline data={EXPERIENCES} />
+    </SectionContainer>
+    <SectionContainer id='educacion'>
+      <h2 class='text-3xl font-semibold mb-6 flex gap-x-3 items-center'>
+        <Academic class='size-7' />
+         Experiencia Académica
+      </h2>
+      <Timeline data={EDUCATION} />
+    </SectionContainer>
+    <SectionContainer id='proyectos'>
+      <h2 class='text-3xl font-semibold mb-6 flex gap-x-3 items-center'>
+        <Code class='size-7' />
+         Proyectos
+      </h2>
+      <!-- Projects Component /> -->
+    </SectionContainer>
+  </main>
 </Layout>
